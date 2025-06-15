@@ -1,12 +1,30 @@
 <div id="<%= dom_id post %>">
-  
-    <h1>
-      <%= post.title %>
-    </h1>
-    <h2>
-      <%= post.excerpt %>
-    </h2>
-  
-      <%= post.body %>
-  
+  <div class="card bg-light p-3">
+    <div class="card-body">
+      <h4>
+        <%= link_to post.title, post %>
+      </h4>
+      <div class="text-muted">
+        <em> Por <%= post.excerpt %></em>
+      </div>
+
+      <p><%=post.body.truncate(200) %></p>
+     
+
+      <em><%= post.created_at.strftime("%d/%m/%Y") %></em>
+
+      <br>
+
+      <p class="text-muted"><%= post.comments.count %> comentários</p>
+      
+
+      <div class="d-flex justify-content-right gap-2">
+        <%= link_to "Ler artigo", post, class: 'text-white btn btn-primary p-2' %> 
+        <%= link_to "Editar", edit_post_path(post), class: 'text-white btn btn-secondary p-2' %> 
+        <%= link_to "Apagar", post, method: :delete , class:'text-white btn btn-danger p-2', 
+        data: { confirm: "Você tem certeza?" } %> 
+      </div>
+
+    </div>
+  </div>
 </div>

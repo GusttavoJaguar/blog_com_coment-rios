@@ -6,10 +6,10 @@
 <div id="posts">
   <% @posts.each do |post| %>
     <%= simple_format render post %>
-    <p> 
-      <%= link_to "Show this post", post %>
-    </p>
+    
     <hr>
   <% end %>
 </div>
-<%= link_to "New post", new_post_path %>
+<div class="text-center">
+  <%= link_to "Criar post", new_post_path, class:'text-white btn btn-success p-2' %>
+</div>
